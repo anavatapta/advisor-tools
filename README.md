@@ -1,10 +1,10 @@
 # Advisor Tools
 
-A collection of document generation tools for professional services work.
+A collection of document generation tools for Esri PS.
 
 ## PDF Generation System
 
-Generate beautiful PDFs from Markdown using Pandoc and LaTeX.
+Generate PDFs from Markdown using Pandoc and LaTeX.
 
 ### Quick Start
 
@@ -14,9 +14,9 @@ python generate_pdf.py input.md --template professional
 
 ### Templates
 
-- **professional** - Clean, formal business documents with headers/footers
-- **minimal** - Simple, elegant single-column layout
-- **formal** - Traditional academic/formal style with title page
+- professional · Clean, formal business documents with headers/footers
+- minimal · Simple single-column layout
+- formal - Traditional report format with title page
 
 ### Requirements
 
