@@ -1,0 +1,98 @@
+% Report Template - Traditional Business Style with Title Page
+% For Pandoc conversion of Markdown to PDF
+
+\documentclass[11pt,letterpaper]{article}
+
+% Packages
+\usepackage[margin=1in]{geometry}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{parskip}
+
+% Font setup - Latin Modern
+\usepackage{lmodern}
+
+% Colors
+\definecolor{esriblue}{RGB}{0,97,155}
+
+% Section formatting with numbering
+\setcounter{secnumdepth}{3}
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+
+% Header and footer
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancyhead[L]{\small\textit{$title$}}
+\fancyhead[R]{\small\thepage}
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=esriblue,
+    pdfborder={0 0 0}
+}
+
+% Pandoc variables
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% Custom title page
+\title{$title$}
+\author{$if(author)$$author$$endif$}
+\date{$if(date)$$date$$endif$}
+
+\begin{document}
+
+% Title page
+\begin{titlepage}
+    % Logo in upper left
+    $if(logo)$
+    \begin{flushleft}
+    \vspace*{-1.5cm}
+    \hspace*{-0.5cm}
+    \includegraphics[height=0.8in]{$logo$}
+    \end{flushleft}
+    $endif$
+    
+    \centering
+    \vspace*{3cm}
+    
+    {\huge\bfseries $title$\par}
+    \vspace{2cm}
+    
+    $if(author)$
+    {\Large $author$\par}
+    \vspace{1cm}
+    $endif$
+    
+    $if(date)$
+    {\large $date$\par}
+    $endif$
+    
+    \vfill
+    
+    % Optional footer on title page
+    $if(organization)$
+    {\large $organization$\par}
+    $endif$
+    
+\end{titlepage}
+
+% Reset page counter for main document
+\setcounter{page}{1}
+
+$body$
+
+\end{document}
